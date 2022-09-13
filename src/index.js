@@ -29,12 +29,22 @@ function launchHue() {}
 function exploreHue() {}
 
 // toggle between light & dark mode
+// needs .dark-mode in CSS to work
 function lightDarkMode() {
-    const bodyMode = document.body;
-    bodyMode.classList.toggle("dark-mode");
+  const bodyMode = document.body;
+  bodyMode.classList.toggle("dark-mode");
 }
 
 // explore card hover event
-exploreCard.addEventListener("mouseover", function(){
-    // zoom function here
+const exploreCards = document.getElementById("explore-cards")
+exploreCards.addEventListener("mouseover", function () {
+  // zoom function here - CSS?
 });
+
+
+randomColor().then((colors) => {
+  colors.forEach((card) => {
+    launchColor(card);
+    exploreColors(card);
+  });
+})
