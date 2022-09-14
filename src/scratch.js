@@ -1,4 +1,5 @@
 const xcolors = "https://x-colors.herokuapp.com/api/random";
+const explore = document.getElementById("explore");
 
 // fetch random color
 function getColor(number) {
@@ -23,16 +24,17 @@ function launchColor() {
   getColor();
 }
 
-// displays explore color cards
+// displays explore color cards (WIP)
 function exploreColors(color) {
   let hex = document.getElementById("hex");
-  hex.innerText = color.hex;
+  hex.innerHTML = "hi";
+  // `HEX: ${color.hex}`;
 
   let rgb = document.getElementById("rgb");
-  rgb.innerText = color.hsl;
+  rgb.innerHTML = `RGB: ${color.hsl}`;
 
   let hsl = document.getElementById("hsl");
-  hsl.innerText = color.hsl;
+  hsl.innerHTML = `HSL: ${color.hsl}`;
 }
 
 // displays launch color card filtered by hue
@@ -49,21 +51,18 @@ function lightDarkMode() {
 }
 
 // explore card hover event
-// const exploreCards = document.getElementById("explore-cards");
-// exploreCards.addEventListener("mouseover", function () {
-//   // zoom function here - CSS?
-// });
-
-// getting data back from the promise and looping through it to render explore cards
-// getColor().then((random) => {
-//     random.forEach((color) => {
-//       exploreColors(color);
-//     });
-//   });
-
-// etc.
-
 /*
+const exploreCards = document.getElementById("explore-cards");
+exploreCards.addEventListener("mouseover", function () {
+  // zoom function here - CSS?
+});
+*/
 
-  
+// getting data back from the promise and looping through it to render explore cards?
+/*
+getColor().then((random) => {
+  random.forEach((color) => {
+    exploreColors(color);
+  });
+});
 */
