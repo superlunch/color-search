@@ -1,107 +1,306 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Color Search</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="index.css" />
-    <style>
-      body,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: "Helvetica", sans-serif;
-      }
-      .bar-block .bar-item {
-        padding: 12px;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Sidebar (hidden by default) -->
-    <nav
-      class="sidebar bar-block card top xlarge animate-left"
-      style="display: none; z-index: 2; width: 40%; min-width: 300px"
-      id="mySidebar"
-    >
-      <a
-        href="javascript:void(0)"
-        onclick="w3_close()"
-        class="bar-item button"
-        >✕</a
-      >
-      <a href="#about" onclick="w3_close()" class="bar-item button"
-        >About</a
-      >
-      <a href="#github" onclick="w3_close()" class="bar-item button"
-        >GitHub</a
-      >
-    </nav>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="images/icon.png">
+        <link rel="stylesheet" href="style.css">
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <title>Colors</title>
+    </head>
+    <body>
+    <!---------- Header ---------->
+        <header class="header">
+            <nav class="nav container">
+                <div class="openFilter" id="openFilter">
+                    <i class='bx bx-filter'></i>
+                </div>
 
-    <!-- Top menu -->
-    <div class="top">
-      <div class="white xlarge" style="max-width: 1200px; margin: auto">
-        <div class="button padding-16 left" onclick="w3_open()">☰</div>
-        <div class="right padding-16"> <button class="button" onclick="lightDarkMode()">✕</button></div>
-        <div class="center padding-16">Colors</div>
-      </div>
-    </div>
+                <a href="#" class="logo">colors</a>
 
-    <!-- !PAGE CONTENT! -->
+                <div class="filter">
+                    <ul class="list">
+                        <li class="items"><a href="#explore" class="link">Red</a></li>
+                        <li class="items"><a href="#explore" class="link">Pink</a></li>
+                        <li class="items"><a href="#explore" class="link">Purple</a></li>
+                        <li class="items"><a href="#explore" class="link">Navy</a></li>
+                        <li class="items"><a href="#explore" class="link">Blue</a></li>
+                        <li class="items"><a href="#explore" class="link">Aqua</a></li>
+                        <li class="items"><a href="#explore" class="link">Green</a></li>
+                        <li class="items"><a href="#explore" class="link">Lime</a></li>
+                        <li class="items"><a href="#explore" class="link">Yellow</a></li>
+                    </ul>
 
-    <div
-      class="main content padding"
-      style="max-width: 1200px; margin-top: 100px"
-    >
-      <div class="row-padding padding-16 center" id="explore">
-        <div class="quarter" id="color-card">
-          <img
-            class="detail-image"
-            src="https://www.macmillandictionary.com/external/slideshow/thumb/Grey_thumb.png"
-            alt="Insert Image Here"
-            style="height: 100%; width: 100%; object-fit: contain"
-          />
-          <p id="hex"></p>
-          <p id="rgb"> </p>
-          <p id="rsl"> </p>
-        </div>
-      </div>
+                    <div class="closeFilter" id="closeFilter">
+                        <i class='bx bx-x'></i>
+                    </div>    
+                </div>
 
-      
+                <div class="toggleAppearance" id="toggleAppearance"></div>
 
-      <hr />
+            </nav>
+        </header>
 
-      <!-- Footer -->
-      <footer class="row-padding padding-32">
-        <div class="third">
-          <h3>FOOTER</h3>
-          <p>
-            Praesent tincidunt sed tellus ut rutrum. Sed vitae justo
-            condimentum, porta lectus vitae, ultricies congue gravida diam non
-            fringilla.
-            </p>
-          </br>
-          </p>
-          </p>
-        </div>
-      </footer>
+    <!---------- Main ---------->
+        <main class="main">           
+    <!---------- Home Section ---------->
+            <section class="home" id="home">
+                <div class="actions">                   
+                    <a href="#explore"><button type="button" class="exploreBtn" id="exploreBtn">Explore</button></a>
+                </div>
 
-      <!-- End page content -->
-    </div>
+                <div class="homeColorDetails">
+                    <p class="homeColorNumber" id="homeRgbNumber">rgb(188, 178, 48)</p>
+                    <p class="homeColorNumber" id="homeHexNumber">#dle37e</p>
+                    <p class="homeColorNumber" id="homeHslNumber">hsl(56, 74%, 74%)</p>
+                </div>     
+            </section>
 
-    <script>
-      // Script to open and close sidebar
-      function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
-      }
+    <!---------- Exlpore Section ---------->
+            <section class="explore" id="explore">
+                <p class="heading">Explore</p>
 
-      function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-      }
-    </script>
-    <script src="src/index.js"></script>
-  </body>
+                <div class="exploreContainer container">                 
+                    <div class="cards">
+                        <div>
+                            <span class="colors" id="colors"></span>
+                        </div>
+
+                        <div class="hex">
+                            <p class="title">HEX</p>
+                            <p class="details" id="details">#BCB230</p>
+                        </div>
+                        <div class="rgb">
+                            <p class="title">RGB</p>
+                            <p class="details" id="details">rgb(188, 178, 48)</p>
+                        </div>
+                        <div class="hsl">
+                            <p class="title">HSL</p>
+                            <p class="details" id="details">hsl(56, 74%, 74%)</p>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div>
+                            <span class="colors" id="colors"></span>
+                        </div>
+
+                        <div class="hex">
+                            <p class="title">HEX</p>
+                            <p class="details" id="details">#BCB230</p>
+                        </div>
+                        <div class="rgb">
+                            <p class="title">RGB</p>
+                            <p class="details" id="details">rgb(188, 178, 48)</p>
+                        </div>
+                        <div class="hsl">
+                            <p class="title">HSL</p>
+                            <p class="details" id="details">rgb(188, 178, 48)</p>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div>
+                            <span class="colors" id="colors"></span>
+                        </div>
+
+                        <div class="hex">
+                            <p class="title">HEX</p>
+                            <p class="details" id="details">#BCB230</p>
+                        </div>
+                        <div class="rgb">
+                            <p class="title">RGB</p>
+                            <p class="details" id="details">rgb(188, 178, 48)</p>
+                        </div>
+                        <div class="hsl">
+                            <p class="title">HSL</p>
+                            <p class="details" id="details">hsl(56, 74%, 74%)</p>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div>
+                            <span class="colors" id="colors"></span>
+                        </div>
+
+                        <div class="hex">
+                            <p class="title">HEX</p>
+                            <p class="details" id="details">#BCB230</p>
+                        </div>
+                        <div class="rgb">
+                            <p class="title">RGB</p>
+                            <p class="details" id="details">rgb(188, 178, 48)</p>
+                        </div>
+                        <div class="hsl">
+                            <p class="title">HSL</p>
+                            <p class="details" id="details">hsl(56, 74%, 74%)</p>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div>
+                            <span class="colors" id="colors"></span>
+                        </div>
+
+                        <div class="hex">
+                            <p class="title">HEX</p>
+                            <p class="details" id="details">#BCB230</p>
+                        </div>
+                        <div class="rgb">
+                            <p class="title">RGB</p>
+                            <p class="details" id="details">rgb(188, 178, 48)</p>
+                        </div>
+                        <div class="hsl">
+                            <p class="title">HSL</p>
+                            <p class="details" id="details">hsl(56, 74%, 74%)</p>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div>
+                            <span class="colors" id="colors"></span>
+                        </div>
+
+                        <div class="hex">
+                            <p class="title">HEX</p>
+                            <p class="details" id="details">#BCB230</p>
+                        </div>
+                        <div class="rgb">
+                            <p class="title">RGB</p>
+                            <p class="details" id="details">rgb(188, 178, 48)</p>
+                        </div>
+                        <div class="hsl">
+                            <p class="title">HSL</p>
+                            <p class="details" id="details">hsl(56, 74%, 74%)</p>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div>
+                            <span class="colors" id="colors"></span>
+                        </div>
+
+                        <div class="hex">
+                            <p class="title">HEX</p>
+                            <p class="details" id="details">#BCB230</p>
+                        </div>
+                        <div class="rgb">
+                            <p class="title">RGB</p>
+                            <p class="details" id="details">rgb(188, 178, 48)</p>
+                        </div>
+                        <div class="hsl">
+                            <p class="title">HSL</p>
+                            <p class="details" id="details">hsl(56, 74%, 74%)</p>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div>
+                            <span class="colors" id="colors"></span>
+                        </div>
+
+                        <div class="hex">
+                            <p class="title">HEX</p>
+                            <p class="details" id="details">#BCB230</p>
+                        </div>
+                        <div class="rgb">
+                            <p class="title">RGB</p>
+                            <p class="details" id="details">rgb(188, 178, 48)</p>
+                        </div>
+                        <div class="hsl">
+                            <p class="title">HSL</p>
+                            <p class="details" id="details">hsl(56, 74%, 74%)</p>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div>
+                            <span class="colors" id="colors"></span>
+                        </div>
+
+                        <div class="hex">
+                            <p class="title">HEX</p>
+                            <p class="details" id="details">#BCB230</p>
+                        </div>
+                        <div class="rgb">
+                            <p class="title">RGB</p>
+                            <p class="details" id="details">rgb(188, 178, 48)</p>
+                        </div>
+                        <div class="hsl">
+                            <p class="title">HSL</p>
+                            <p class="details" id="details">hsl(56, 74%, 74%)</p>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div>
+                            <span class="colors" id="colors"></span>
+                        </div>
+
+                        <div class="hex">
+                            <p class="title">HEX</p>
+                            <p class="details" id="details">#BCB230</p>
+                        </div>
+                        <div class="rgb">
+                            <p class="title">RGB</p>
+                            <p class="details" id="details">rgb(188, 178, 48)</p>
+                        </div>
+                        <div class="hsl">
+                            <p class="title">HSL</p>
+                            <p class="details" id="details">hsl(56, 74%, 74%)</p>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div>
+                            <span class="colors" id="colors"></span>
+                        </div>
+
+                        <div class="hex">
+                            <p class="title">HEX</p>
+                            <p class="details" id="details">#BCB230</p>
+                        </div>
+                        <div class="rgb">
+                            <p class="title">RGB</p>
+                            <p class="details" id="details">rgb(188, 178, 48)</p>
+                        </div>
+                        <div class="hsl">
+                            <p class="title">HSL</p>
+                            <p class="details" id="details">hsl(56, 74%, 74%)</p>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div>
+                            <span class="colors" id="colors"></span>
+                        </div>
+
+                        <div class="hex">
+                            <p class="title">HEX</p>
+                            <p class="details" id="details">#BCB230</p>
+                        </div>
+                        <div class="rgb">
+                            <p class="title">RGB</p>
+                            <p class="details" id="details">rgb(188, 178, 48)</p>
+                        </div>
+                        <div class="hsl">
+                            <p class="title">HSL</p>
+                            <p class="details" id="details">hsl(56, 74%, 74%)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="#explore"><button type="button" class="refreshBtn">Refresh</button></a>
+                </div>
+                
+            </section>
+        </main>
+    <!---------- Footer ---------->
+        <footer>
+            <p>© 2022 by Colors. All rights reserved.</p>
+        </footer>
+
+        <script src="index.js"></script>
+    </body>
 </html>
