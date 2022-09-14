@@ -1,332 +1,366 @@
 /* --------- Basic Setup ---------- */
 
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 @font-face {
-    font-family: 'Syne';
-    src: url(fonts/Syne-Extra.otf);
+  font-family: "Syne";
+  src: url(fonts/Syne-Extra.otf);
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-ul{
-    list-style: none;
+ul {
+  list-style: none;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
 .container {
-    max-width: 1300px;
-    width: 90%;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin: 0 auto;
+  max-width: 1300px;
+  width: 90%;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin: 0 auto;
 }
 
+body {
+  background-color: white;
+  color: black;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
+}
 
 /* ---------- Header ---------- */
 
-
 .header {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    background-color:#fff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #fff;
+  color: black;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
 }
 
 .nav {
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color:#fff;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  color: black;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
 }
 
 .openFilter {
-    font-size: 23px;
-    cursor: pointer;
+  font-size: 23px;
+  cursor: pointer;
 }
 
 .closeFilter {
-    font-size: 20px;
-    cursor: pointer;
-    margin-top: 50px;
-    padding-left: 11px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 50px;
+  padding-left: 11px;
 }
 
 .logo {
-    color: #000;
-    font-family: 'Syne';
-    font-size: 20px;
-    padding-bottom: 2px;
-    background-color: #fff;
-    border: 1px solid;
-    border-radius: 4px;
-    padding: 2px 9px;
-    margin-right: 8px;
+  color: #000;
+  font-family: "Syne";
+  font-size: 20px;
+  padding-bottom: 2px;
+  background-color: #fff;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 2px 9px;
+  margin-right: 8px;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
 }
 
-#toggleAppearance {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    background-color: #000;
-    border-radius: 50px;
-    cursor: pointer;
+.toggleAppearance {
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
 }
 
 .dropShadow {
-    box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
 }
 
 .filter {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100vh;
-    padding: 30px 50px;
-    box-shadow: 1px 0px 20px 2px rgba(0, 0, 0, 0.1);
-    transition: .5s;
-    background-color:#fff;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100vh;
+  padding: 30px 50px;
+  box-shadow: 1px 0px 20px 2px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+  background-color: #fff;
+  color: black;
 }
 
-.link{
-    padding: 2px 15px;
-    border-radius: 4px;
-    transition: .1s;
+.link {
+  padding: 2px 15px;
+  border-radius: 4px;
+  transition: 0.1s;
 }
 
 .link:hover {
-    background-color: #000;
-    color: #fff;
+  background-color: #000;
+  color: #fff;
 }
 
 .toggle {
-    left: 0;
+  left: 0;
 }
 
 .items {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .list li a {
-    color: #000;
-    font-family: 'Poppins', sans-serif
+  color: black;
+  font-family: "Poppins", sans-serif;
 }
-
 
 /* ----------- Home Section ---------- */
 
-
 .home {
-    background-color: #d1e37e;
-    height: 100vh;
-    box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
+  background-color: #d1e37e;
+  height: 100vh;
+  box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
 }
 
 .actions {
-    margin-top: auto;
-    margin-bottom: auto;
-    text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
 }
 
 .homeColorDetails {
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 7vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7vh;
 }
 
 .homeColorNumber {
-    color:#fff;
-    background-color: #000;
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
-    padding: 6px 17px;
-    border-radius: 50px;
-    cursor: default; 
-    margin-right: 6vw;
-    margin-left: 6vw;
+  color: white;
+  background-color: black;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  padding: 6px 17px;
+  border-radius: 50px;
+  cursor: default;
+  margin-right: 6vw;
+  margin-left: 6vw;
 }
 
 .exploreBtn {
-    font-family: 'Syne';
-    border: none;
-    padding: 8px 35px;
-    background-color: #000;
-    border-radius: 8px;
-    cursor: pointer;
-    color: #fff;
-    font-size: 25px;
-    margin-top: 8px;
-    box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
-    transition: .5s;
+  font-family: "Syne";
+  border: none;
+  padding: 8px 35px;
+  background-color: #000;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 25px;
+  margin-top: 8px;
+  box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
 }
+.dark-mode {
+    background-color: white;
+    color: black;
+  }
 
-.exploreBtn:hover{
-    transform: translateY(-5px);
+.exploreBtn:hover {
+  transform: translateY(-5px);
 }
-
 
 /* ---------- Explore Section ---------- */
 
-
 .explore {
-    text-align: center;
-    padding-top: 120px;
-    padding-bottom: 40px;
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 40px;
 }
 
 .heading {
-    font-family: 'Syne';
-    font-size: 22px;
-    margin-bottom: 40px;
+  font-family: "Syne";
+  font-size: 22px;
+  margin-bottom: 40px;
 }
 
 .exploreContainer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 30px;
-    background-color: #fff;
-    margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+  background-color: #fff;
+  margin-bottom: 50px;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
 }
 
 .cards {
-    background-color: #000;
-    padding: 11px;
-    border-radius: 13px;
-    box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
-    transition: .3s;
+  background-color: #000;
+  padding: 11px;
+  border-radius: 13px;
+  box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+.dark-mode {
+  background-color: white;
 }
 
 .cards:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .colors {
-    display: inline-block;
-    width: 100%;
-    height: 100px;
-    background-color: #d1e37e;
-    border-radius: 9px;
-    margin-bottom: 10px;
+  display: inline-block;
+  width: 100%;
+  height: 100px;
+  background-color: #d1e37e;
+  border-radius: 9px;
+  margin-bottom: 10px;
 }
 
 .hex,
 .rgb,
 .hsl {
-    color: #fff;
-    font-family: 'Syne';
-    font-size: 20px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
+  color: #fff;
+  font-family: "Syne";
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .hsl {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .cards .title {
-    font-family: 'Poppins', sans-serif; 
-    font-size: 11px;
-    font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .cards .details {
-    font-family: 'Poppins', sans-serif; 
-    font-size: 11px;
-    font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
 }
 
 .refreshBtn {
-    color: #fff;
-    font-family: 'Syne';
-    border: none;
-    padding: 8px 35px;
-    background-color: #000;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-bottom: 30px;
-    box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
-    transition: .5s;
+  color: #fff;
+  font-family: "Syne";
+  border: none;
+  padding: 8px 35px;
+  background-color: black;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
 }
+/* .dark-mode {
+  background-color: white;
+  color: black;
+} */
 
 .refreshBtn:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
-
 
 /* ---------- Footer ---------- */
 
-
 footer {
-    background-color: #fff;
-    box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
-    font-family: 'Poppins', sans-serif; 
-    font-size: 9px;
+  background-color: #fff;
+  box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 9px;
 }
-
+.dark-mode {
+  background-color: black;
+  color: white;
+  box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
+}
 
 /* ---------- Media Query ---------- */
 
-
 @media screen and (min-width: 650px) {
-    .exploreContainer {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .exploreContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media screen and (min-width: 900px) {
-    .exploreContainer{ 
-        grid-template-columns: repeat(4, 1fr);
-    }
+  .exploreContainer {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media screen and (min-width: 700px) {
-    .filter {
-        width: 35%;
-    }
+  .filter {
+    width: 35%;
+  }
 }
 
 @media screen and (min-width: 1000px) {
-    .filter {
-        width: 30%;
-    }
+  .filter {
+    width: 30%;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    .homeContainer {
-        padding-top: 300px;
-    }
+  .homeContainer {
+    padding-top: 300px;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .homeColorNumber {
-        font-size: 9px;
-        margin-right: 4.5vw;
-        margin-left: 4.5vw;
-    }
+  .homeColorNumber {
+    font-size: 9px;
+    margin-right: 4.5vw;
+    margin-left: 4.5vw;
+  }
 }
