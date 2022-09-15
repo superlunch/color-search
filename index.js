@@ -185,6 +185,6 @@ function filter(color) {
         })
         setTimeout(() => {
             exploreContainer.style.visibility = 'visible';
-        },700)
+        }, 700)
     })
 }
