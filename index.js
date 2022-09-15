@@ -6,16 +6,7 @@ randomBGColor();
 clickToChangeBGColor();
 randomColorCards();
 refreshBtnEvent();
-redFilterEvent();
-pinkFilterEvent();
-purpleFilterEvent();
-navyFilterEvent();
-blueFilterEvent();
-aquaFilterEvent();
-greenFilterEvent();
-limeFilterEvent();
-yellowFilterEvent();
-
+filterEvents();
 
 function toggleFilter() {
     const filter = document.querySelector('.filter')
@@ -91,9 +82,7 @@ function changeAppearanceEvent() {
             rgb.forEach(color => {
                 color.style.color = 'white';
             })
-        }
-        
-        
+        }      
     })
 }
 
@@ -133,9 +122,7 @@ function clickToChangeBGColor() {
     const hexNumebr = document.querySelector('#homeHexNumber');
     const hslNumber = document.querySelector('#homeHslNumber');
 
-    home.addEventListener('click', e => {
-        console.log(e.target)
-        
+    home.addEventListener('click', e => {       
         fetch('https://x-colors.herokuapp.com/api/random')
         .then(resp => resp.json())
         .then(data => {
@@ -143,10 +130,8 @@ function clickToChangeBGColor() {
             rgbNumber.textContent = data.rgb;
             hexNumebr.textContent = data.hex;
             hslNumber.textContent = data.hsl;
-        })
-        
-    })
-    
+        })       
+    })   
 }
 
 function randomColorCards() {
@@ -175,14 +160,22 @@ function refreshBtnEvent() {
     })
 }
 
-function redFilterEvent() {
-    const redFilter = document.querySelector('#redFilter');
-    redFilter.addEventListener('click', e => {
+function filterEvents(){
+    const colors = document.querySelectorAll('.link');
+    colors.forEach(color => {
+        color.addEventListener('click', e => {
+            filter(color.textContent);
+        })
+    })
+}
+
+function filter(color) {
+        console.log(color)
         const cards = document.querySelectorAll('.cards');
         const exploreContainer = document.querySelector('.exploreContainer');
         exploreContainer.style.visibility = 'hidden';
         cards.forEach(card => {
-        fetch('https://x-colors.herokuapp.com/api/random/red')
+        fetch(`https://x-colors.herokuapp.com/api/random/${color.toLowerCase()}`)
         .then(resp => resp.json())
         .then(data => {
             card.childNodes[1].style.backgroundColor = data.hex;
@@ -194,182 +187,4 @@ function redFilterEvent() {
             exploreContainer.style.visibility = 'visible';
         },700)
     })
-})
 }
-
-function pinkFilterEvent() {
-    const pinkFilter = document.querySelector('#pinkFilter');
-    pinkFilter.addEventListener('click', e => {
-        const cards = document.querySelectorAll('.cards');
-        const exploreContainer = document.querySelector('.exploreContainer');
-        exploreContainer.style.visibility = 'hidden';
-        cards.forEach(card => {
-        fetch('https://x-colors.herokuapp.com/api/random/pink')
-        .then(resp => resp.json())
-        .then(data => {
-            card.childNodes[1].style.backgroundColor = data.hex;
-            card.childNodes[3].childNodes[3].textContent = data.hex;
-            card.childNodes[5].childNodes[3].textContent = data.rgb;
-            card.childNodes[7].childNodes[3].textContent = data.hsl;
-        })
-        setTimeout(() => {
-            exploreContainer.style.visibility = 'visible';
-        },700)
-    })
-})
-}
-
-function purpleFilterEvent() {
-    const purpleFilter = document.querySelector('#purpleFilter');
-    purpleFilter.addEventListener('click', e => {
-        const cards = document.querySelectorAll('.cards');
-        const exploreContainer = document.querySelector('.exploreContainer');
-        exploreContainer.style.visibility = 'hidden';
-        cards.forEach(card => {
-        fetch('https://x-colors.herokuapp.com/api/random/purple')
-        .then(resp => resp.json())
-        .then(data => {
-            card.childNodes[1].style.backgroundColor = data.hex;
-            card.childNodes[3].childNodes[3].textContent = data.hex;
-            card.childNodes[5].childNodes[3].textContent = data.rgb;
-            card.childNodes[7].childNodes[3].textContent = data.hsl;
-        })
-        setTimeout(() => {
-            exploreContainer.style.visibility = 'visible';
-        },700)
-    })
-})
-}
-
-function navyFilterEvent() {
-    const navyFilter = document.querySelector('#navyFilter');
-    navyFilter.addEventListener('click', e => {
-        const cards = document.querySelectorAll('.cards');
-        const exploreContainer = document.querySelector('.exploreContainer');
-        exploreContainer.style.visibility = 'hidden';
-        cards.forEach(card => {
-        fetch('https://x-colors.herokuapp.com/api/random/navy')
-        .then(resp => resp.json())
-        .then(data => {
-            card.childNodes[1].style.backgroundColor = data.hex;
-            card.childNodes[3].childNodes[3].textContent = data.hex;
-            card.childNodes[5].childNodes[3].textContent = data.rgb;
-            card.childNodes[7].childNodes[3].textContent = data.hsl;
-        })
-        setTimeout(() => {
-            exploreContainer.style.visibility = 'visible';
-        },700)
-    })
-})
-}
-
-function blueFilterEvent() {
-    const blueFilter = document.querySelector('#blueFilter');
-    blueFilter.addEventListener('click', e => {
-        const cards = document.querySelectorAll('.cards');
-        const exploreContainer = document.querySelector('.exploreContainer');
-        exploreContainer.style.visibility = 'hidden';
-        cards.forEach(card => {
-        fetch('https://x-colors.herokuapp.com/api/random/blue')
-        .then(resp => resp.json())
-        .then(data => {
-            card.childNodes[1].style.backgroundColor = data.hex;
-            card.childNodes[3].childNodes[3].textContent = data.hex;
-            card.childNodes[5].childNodes[3].textContent = data.rgb;
-            card.childNodes[7].childNodes[3].textContent = data.hsl;
-        })
-        setTimeout(() => {
-            exploreContainer.style.visibility = 'visible';
-        },700)
-    })
-})
-}
-
-function aquaFilterEvent() {
-    const aquaFilter = document.querySelector('#aquaFilter');
-    aquaFilter.addEventListener('click', e => {
-        const cards = document.querySelectorAll('.cards');
-        const exploreContainer = document.querySelector('.exploreContainer');
-        exploreContainer.style.visibility = 'hidden';
-        cards.forEach(card => {
-        fetch('https://x-colors.herokuapp.com/api/random/aqua')
-        .then(resp => resp.json())
-        .then(data => {
-            card.childNodes[1].style.backgroundColor = data.hex;
-            card.childNodes[3].childNodes[3].textContent = data.hex;
-            card.childNodes[5].childNodes[3].textContent = data.rgb;
-            card.childNodes[7].childNodes[3].textContent = data.hsl;
-        })
-        setTimeout(() => {
-            exploreContainer.style.visibility = 'visible';
-        },700)
-    })
-})
-}
-
-function greenFilterEvent() {
-    const greenFilter = document.querySelector('#greenFilter');
-    greenFilter.addEventListener('click', e => {
-        const cards = document.querySelectorAll('.cards');
-        const exploreContainer = document.querySelector('.exploreContainer');
-        exploreContainer.style.visibility = 'hidden';
-        cards.forEach(card => {
-        fetch('https://x-colors.herokuapp.com/api/random/green')
-        .then(resp => resp.json())
-        .then(data => {
-            card.childNodes[1].style.backgroundColor = data.hex;
-            card.childNodes[3].childNodes[3].textContent = data.hex;
-            card.childNodes[5].childNodes[3].textContent = data.rgb;
-            card.childNodes[7].childNodes[3].textContent = data.hsl;
-        })
-        setTimeout(() => {
-            exploreContainer.style.visibility = 'visible';
-        },700)
-    })
-})
-}
-
-function limeFilterEvent() {
-    const limeFilter = document.querySelector('#limeFilter');
-    limeFilter.addEventListener('click', e => {
-        const cards = document.querySelectorAll('.cards');
-        const exploreContainer = document.querySelector('.exploreContainer');
-        exploreContainer.style.visibility = 'hidden';
-        cards.forEach(card => {
-        fetch('https://x-colors.herokuapp.com/api/random/lime')
-        .then(resp => resp.json())
-        .then(data => {
-            card.childNodes[1].style.backgroundColor = data.hex;
-            card.childNodes[3].childNodes[3].textContent = data.hex;
-            card.childNodes[5].childNodes[3].textContent = data.rgb;
-            card.childNodes[7].childNodes[3].textContent = data.hsl;
-        })
-        setTimeout(() => {
-            exploreContainer.style.visibility = 'visible';
-        },700)
-    })
-})
-}
-
-function yellowFilterEvent() {
-    const yellowFilter = document.querySelector('#yellowFilter');
-    yellowFilter.addEventListener('click', e => {
-        const cards = document.querySelectorAll('.cards');
-        const exploreContainer = document.querySelector('.exploreContainer');
-        exploreContainer.style.visibility = 'hidden';
-        cards.forEach(card => {
-        fetch('https://x-colors.herokuapp.com/api/random/yellow')
-        .then(resp => resp.json())
-        .then(data => {
-            card.childNodes[1].style.backgroundColor = data.hex;
-            card.childNodes[3].childNodes[3].textContent = data.hex;
-            card.childNodes[5].childNodes[3].textContent = data.rgb;
-            card.childNodes[7].childNodes[3].textContent = data.hsl;
-        })
-        setTimeout(() => {
-            exploreContainer.style.visibility = 'visible';
-        },700)
-    })
-})
-}
-
