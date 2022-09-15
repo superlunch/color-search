@@ -7,6 +7,17 @@
   src: url(fonts/Syne-Extra.otf);
 }
 
+:root,
+[data-theme="light"] {
+  --font-color: black;
+  --bg-color: white;
+}
+
+[data-theme="dark"] {
+  --font-color: white;
+  --bg-color: black;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -34,13 +45,13 @@ html {
 }
 
 body {
-  background-color: white;
-  color: black;
+  background-color: var(--bg-color);
+  color: var(--font-color);
 }
-.dark-mode {
-  background-color: black;
-  color: white;
-}
+/* .dark-mode {
+  background-color: red;
+  color: blue;
+} */
 
 /* ---------- Header ---------- */
 
@@ -50,26 +61,26 @@ body {
   top: 0;
   left: 0;
   z-index: 100;
-  background-color: #fff;
-  color: black;
+  background-color: var(--bg-color);
+  color: var(--font-color);
 }
-.dark-mode {
+/* .dark-mode {
   background-color: black;
   color: white;
-}
+} */
 
 .nav {
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
-  color: black;
+  background-color: var(--bg-color);
+  color: var(--font-color);
 }
-.dark-mode {
+/* .dark-mode {
   background-color: black;
   color: white;
-}
+} */
 
 .openFilter {
   font-size: 23px;
@@ -84,30 +95,30 @@ body {
 }
 
 .logo {
-  color: #000;
+  color: var(--font-color);
   font-family: "Syne";
   font-size: 20px;
   padding-bottom: 2px;
-  background-color: #fff;
+  background-color: var(--bg-color);
   border: 1px solid;
   border-radius: 4px;
   padding: 2px 9px;
   margin-right: 8px;
 }
-.dark-mode {
+/* .dark-mode {
   background-color: black;
   color: white;
-}
+} */
 
 .toggleAppearance {
   display: inline-block;
   font-size: 20px;
   cursor: pointer;
 }
-.dark-mode {
+/* .dark-mode {
   background-color: black;
   color: white;
-}
+} */
 
 .dropShadow {
   box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
@@ -122,8 +133,8 @@ body {
   padding: 30px 50px;
   box-shadow: 1px 0px 20px 2px rgba(0, 0, 0, 0.1);
   transition: 0.5s;
-  background-color: #fff;
-  color: black;
+  background-color: var(--bg-color);
+  color: var(--font-color);
 }
 
 .link {
@@ -133,8 +144,8 @@ body {
 }
 
 .link:hover {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--font-color);
+  color: var(--bg-color);
 }
 
 .toggle {
@@ -146,7 +157,7 @@ body {
 }
 
 .list li a {
-  color: black;
+  color: var(--font-color);
   font-family: "Poppins", sans-serif;
 }
 
@@ -178,8 +189,8 @@ body {
 }
 
 .homeColorNumber {
-  color: white;
-  background-color: black;
+  background-color: var(--font-color);
+  color: var(--bg-color);
   font-family: "Poppins", sans-serif;
   font-size: 11px;
   padding: 6px 17px;
@@ -188,24 +199,28 @@ body {
   margin-right: 6vw;
   margin-left: 6vw;
 }
+/* .dark-mode {
+  color: black;
+  background-color: white;
+} */
 
 .exploreBtn {
   font-family: "Syne";
   border: none;
   padding: 8px 35px;
-  background-color: #000;
+  background-color: var(--font-color);
   border-radius: 8px;
   cursor: pointer;
-  color: #fff;
+  color: var(--bg-color);
   font-size: 25px;
   margin-top: 8px;
   box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
   transition: 0.5s;
 }
-.dark-mode {
-    background-color: white;
-    color: black;
-  }
+/* .dark-mode {
+  background-color: white;
+  color: black;
+} */
 
 .exploreBtn:hover {
   transform: translateY(-5px);
@@ -229,24 +244,24 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 30px;
-  background-color: #fff;
+  background-color: var(--bg-color);
   margin-bottom: 50px;
 }
-.dark-mode {
+/* .dark-mode {
   background-color: black;
   color: white;
-}
+} */
 
 .cards {
-  background-color: #000;
+  background-color: var(--font-color);
   padding: 11px;
   border-radius: 13px;
   box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
 }
-.dark-mode {
+/* .dark-mode {
   background-color: white;
-}
+} */
 
 .cards:hover {
   transform: translateY(-5px);
@@ -264,7 +279,7 @@ body {
 .hex,
 .rgb,
 .hsl {
-  color: #fff;
+  color: var(--bg-color);
   font-family: "Syne";
   font-size: 20px;
   display: flex;
@@ -289,11 +304,11 @@ body {
 }
 
 .refreshBtn {
-  color: #fff;
+  color: var(--bg-color);
   font-family: "Syne";
   border: none;
   padding: 8px 35px;
-  background-color: black;
+  background-color: var(--font-color);
   border-radius: 8px;
   cursor: pointer;
   margin-bottom: 30px;
@@ -312,18 +327,17 @@ body {
 /* ---------- Footer ---------- */
 
 footer {
-  background-color: #fff;
+  background-color: var(--bg-color);
   box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 20px;
   font-family: "Poppins", sans-serif;
   font-size: 9px;
 }
-.dark-mode {
+/* .dark-mode {
   background-color: black;
-  color: white;
   box-shadow: 0 1px 20px 2px rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* ---------- Media Query ---------- */
 
