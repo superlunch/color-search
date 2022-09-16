@@ -80,7 +80,6 @@ function hoverCards() {
 
 function randomBGColor() {
   getColor().then((data) => {
-    console.log(data);
     const home = document.querySelector("#home");
     const rgbNumber = document.querySelector("#homeRgbNumber");
     const hexNumber = document.querySelector("#homeHexNumber");
@@ -141,7 +140,6 @@ function filterEvents() {
 }
 
 function filter(color) {
-  console.log(color);
   const cards = document.querySelectorAll(".cards");
   const exploreContainer = document.querySelector(".exploreContainer");
   exploreContainer.style.visibility = "hidden";
