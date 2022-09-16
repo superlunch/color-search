@@ -1,27 +1,22 @@
-const xcolors = "https://x-colors.herokuapp.com/api/random";
-
-// fetch random color
-function getColor(number) {
-  return fetch(xcolors + `/${number}`).then((res) => res.json());
+function getColor() {
+  return fetch("https://x-colors.herokuapp.com/api/random/")
+  .then((resp) => resp.json());
 }
 
-// fetch random colors by hue
-function getHue(hue) {
-  return fetch(xcolors + `/${hue}`).then((res) => res.json());
+function getHue(color) {
+  return fetch(`https://x-colors.herokuapp.com/api/random/${color.toLowerCase()}`)
+  .then((resp) => resp.json());
 }
 
-const htmlTag = document.firstElementChild;
-
-function toggleAppearance() {
-  if (htmlTag.dataset.theme == "light") {
-    htmlTag.dataset.theme = "dark";
-  } else {
-    htmlTag.dataset.theme = "light";
-  }
-}
-
+window.addEventListener("scroll", scrollShowButton);
 toggleFilter();
-scrollHeader();
+changeAppearanceEvent();
+hoverCards();
+randomBGColor();
+clickToChangeBGColor();
+randomColorCards();
+refreshBtnEvent();
+filterEvents();
 
 function toggleFilter() {
   const filter = document.querySelector(".filter");
@@ -44,14 +39,117 @@ function toggleFilter() {
   );
 }
 
-function scrollHeader() {
-  window.onscroll = () => {
-    const header = document.querySelector(".header");
+function scrollShowButton() {
+  let y = window.scrollY;
+  const toggleAppearance = document.querySelector("#toggleAppearance");
 
-    if (this.scrollY >= 1) {
-      header.classList.add("dropShadow");
+  if (y <= 700) {
+    toggleAppearance.style.color = "white";
+    toggleAppearance.classList.add("visiblities");
+  } else {
+    toggleAppearance.classList.remove("visiblities");
+    toggleAppearance.style.color = "black";
+  }
+}
+
+function changeAppearanceEvent() {
+  const toggleAppearance = document.querySelector("#toggleAppearance");
+
+  toggleAppearance.addEventListener("click", (e) => {
+    const htmlTag = document.firstElementChild;
+    if (htmlTag.dataset.theme == "light") {
+      htmlTag.dataset.theme = "dark";
     } else {
-      header.classList.remove("dropShadow");
+      htmlTag.dataset.theme = "light";
     }
-  };
+  });
+}
+
+function hoverCards() {
+  const cards = document.querySelectorAll(".cards");
+  cards.forEach((card) => {
+    card.addEventListener("mouseover", (e) => {
+      card.classList.add("cardsHover");
+    });
+
+    card.addEventListener("mouseout", (e) => {
+      card.classList.remove("cardsHover");
+    });
+  });
+}
+
+function randomBGColor() {
+  getColor().then((data) => {
+    const home = document.querySelector("#home");
+    const rgbNumber = document.querySelector("#homeRgbNumber");
+    const hexNumber = document.querySelector("#homeHexNumber");
+    const hslNumber = document.querySelector("#homeHslNumber");
+
+    home.style.backgroundColor = data.hex;
+    rgbNumber.textContent = data.rgb;
+    hexNumber.textContent = data.hex;
+    hslNumber.textContent = data.hsl;
+  });
+}
+
+function clickToChangeBGColor() {
+  const home = document.querySelector("#home");
+  const rgbNumber = document.querySelector("#homeRgbNumber");
+  const hexNumber = document.querySelector("#homeHexNumber");
+  const hslNumber = document.querySelector("#homeHslNumber");
+
+  home.addEventListener("click", (e) => {
+    getColor().then((data) => {
+      home.style.backgroundColor = data.hex;
+      rgbNumber.textContent = data.rgb;
+      hexNumber.textContent = data.hex;
+      hslNumber.textContent = data.hsl;
+    });
+  });
+}
+
+function randomColorCards() {
+  const cards = document.querySelectorAll(".cards");
+  cards.forEach((card) => {
+    getColor().then((data) => {
+      card.childNodes[1].style.backgroundColor = data.hex;
+      card.childNodes[3].childNodes[3].textContent = data.hex;
+      card.childNodes[5].childNodes[3].textContent = data.rgb;
+      card.childNodes[7].childNodes[3].textContent = data.hsl;
+    });
+  });
+}
+
+function refreshBtnEvent() {
+  const refreshBtn = document.querySelector("#refreshBtn");
+  refreshBtn.addEventListener("click", (e) => {
+    const exploreContainer = document.querySelector(".exploreContainer");
+    exploreContainer.style.visibility = "hidden";
+    randomColorCards();
+    onDOMContentLoaded = exploreContainer.style.visibility = "visible";
+  });
+}
+
+function filterEvents() {
+  const colors = document.querySelectorAll(".link");
+  colors.forEach((color) => {
+    color.addEventListener("click", (e) => {
+      filter(color.textContent);
+    });
+  });
+}
+
+function filter(color) {
+  const cards = document.querySelectorAll(".cards");
+  const exploreContainer = document.querySelector(".exploreContainer");
+  exploreContainer.style.visibility = "hidden";
+  cards.forEach((card) => {
+    getHue(color).then((data) => {
+      card.childNodes[1].style.backgroundColor = data.hex;
+      card.childNodes[3].childNodes[3].textContent = data.hex;
+      card.childNodes[5].childNodes[3].textContent = data.rgb;
+      card.childNodes[7].childNodes[3].textContent = data.hsl;
+    });
+    onDOMContentLoaded = exploreContainer.style.visibility = "visible";
+  });
 }

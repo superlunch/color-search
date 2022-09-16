@@ -39,7 +39,11 @@
           </div>
         </div>
 
+<<<<<<< HEAD
         <div class="toggleAppearance" onclick="toggleAppearance()">☀</div>
+=======
+        <div id="toggleAppearance"><i class="bx bx-sun"></i></div>
+>>>>>>> 9d7f05b40d3f81702209987edab4a6a93577b750
       </nav>
     </header>
 
@@ -49,256 +53,239 @@
       <section class="home" id="home">
         <div class="actions">
           <a href="#explore"
-            ><button type="button" class="exploreBtn" id="exploreBtn">
+            ><button
+              type="button"
+              class="exploreBtn"
+              id="exploreBtn"
+              onclick="event.stopPropagation()"
+            >
               Explore
             </button></a
           >
         </div>
 
-        <div class="homeColorDetails">
+        <div class="homeColorDetails" onclick="event.stopPropagation()">
           <p class="homeColorNumber" id="homeRgbNumber">rgb(188, 178, 48)</p>
           <p class="homeColorNumber" id="homeHexNumber">#dle37e</p>
           <p class="homeColorNumber" id="homeHslNumber">hsl(56, 74%, 74%)</p>
         </div>
       </section>
 
-      <!---------- Explore Section ---------->
+      <!---------- Exlpore Section ---------->
       <section class="explore" id="explore">
         <p class="heading">Explore</p>
 
         <div class="exploreContainer container">
           <div class="cards">
-            <div>
-              <span class="colors" id="colors"></span>
-            </div>
+            <div class="colors"></div>
 
             <div class="hex">
               <p class="title">HEX</p>
-              <p class="details" id="details">#BCB230</p>
+              <p class="HexDetails">#BCB230</p>
             </div>
             <div class="rgb">
               <p class="title">RGB</p>
-              <p class="details" id="details">rgb(188, 178, 48)</p>
+              <p class="RGBDetails">rgb(188, 178, 48)</p>
             </div>
             <div class="hsl">
               <p class="title">HSL</p>
-              <p class="details" id="details">hsl(56, 74%, 74%)</p>
+              <p class="HSLDetails">hsl(56, 74%, 74%)</p>
             </div>
           </div>
 
           <div class="cards">
-            <div>
-              <span class="colors" id="colors"></span>
-            </div>
+            <div class="colors"></div>
 
             <div class="hex">
               <p class="title">HEX</p>
-              <p class="details" id="details">#BCB230</p>
+              <p class="HexDetails">#BCB230</p>
             </div>
             <div class="rgb">
               <p class="title">RGB</p>
-              <p class="details" id="details">rgb(188, 178, 48)</p>
+              <p class="RGBDetails">rgb(188, 178, 48)</p>
             </div>
             <div class="hsl">
               <p class="title">HSL</p>
-              <p class="details" id="details">rgb(188, 178, 48)</p>
+              <p class="HSLDetails">hsl(56, 74%, 74%)</p>
             </div>
           </div>
 
           <div class="cards">
-            <div>
-              <span class="colors" id="colors"></span>
-            </div>
+            <div class="colors"></div>
 
             <div class="hex">
               <p class="title">HEX</p>
-              <p class="details" id="details">#BCB230</p>
+              <p class="HexDetails">#BCB230</p>
             </div>
             <div class="rgb">
               <p class="title">RGB</p>
-              <p class="details" id="details">rgb(188, 178, 48)</p>
+              <p class="RGBDetails">rgb(188, 178, 48)</p>
             </div>
             <div class="hsl">
               <p class="title">HSL</p>
-              <p class="details" id="details">hsl(56, 74%, 74%)</p>
+              <p class="HSLDetails">hsl(56, 74%, 74%)</p>
             </div>
           </div>
 
           <div class="cards">
-            <div>
-              <span class="colors" id="colors"></span>
-            </div>
+            <div class="colors"></div>
 
             <div class="hex">
               <p class="title">HEX</p>
-              <p class="details" id="details">#BCB230</p>
+              <p class="HexDetails">#BCB230</p>
             </div>
             <div class="rgb">
               <p class="title">RGB</p>
-              <p class="details" id="details">rgb(188, 178, 48)</p>
+              <p class="RGBDetails">rgb(188, 178, 48)</p>
             </div>
             <div class="hsl">
               <p class="title">HSL</p>
-              <p class="details" id="details">hsl(56, 74%, 74%)</p>
+              <p class="HSLDetails">hsl(56, 74%, 74%)</p>
             </div>
           </div>
 
           <div class="cards">
-            <div>
-              <span class="colors" id="colors"></span>
-            </div>
+            <div class="colors"></div>
 
             <div class="hex">
               <p class="title">HEX</p>
-              <p class="details" id="details">#BCB230</p>
+              <p class="HexDetails">#BCB230</p>
             </div>
             <div class="rgb">
               <p class="title">RGB</p>
-              <p class="details" id="details">rgb(188, 178, 48)</p>
+              <p class="RGBDetails">rgb(188, 178, 48)</p>
             </div>
             <div class="hsl">
               <p class="title">HSL</p>
-              <p class="details" id="details">hsl(56, 74%, 74%)</p>
+              <p class="HSLDetails">hsl(56, 74%, 74%)</p>
             </div>
           </div>
 
           <div class="cards">
-            <div>
-              <span class="colors" id="colors"></span>
-            </div>
+            <div class="colors"></div>
 
             <div class="hex">
               <p class="title">HEX</p>
-              <p class="details" id="details">#BCB230</p>
+              <p class="HexDetails">#BCB230</p>
             </div>
             <div class="rgb">
               <p class="title">RGB</p>
-              <p class="details" id="details">rgb(188, 178, 48)</p>
+              <p class="RGBDetails">rgb(188, 178, 48)</p>
             </div>
             <div class="hsl">
               <p class="title">HSL</p>
-              <p class="details" id="details">hsl(56, 74%, 74%)</p>
+              <p class="HSLDetails">hsl(56, 74%, 74%)</p>
             </div>
           </div>
 
           <div class="cards">
-            <div>
-              <span class="colors" id="colors"></span>
-            </div>
+            <div class="colors"></div>
 
             <div class="hex">
               <p class="title">HEX</p>
-              <p class="details" id="details">#BCB230</p>
+              <p class="HexDetails">#BCB230</p>
             </div>
             <div class="rgb">
               <p class="title">RGB</p>
-              <p class="details" id="details">rgb(188, 178, 48)</p>
+              <p class="RGBDetails">rgb(188, 178, 48)</p>
             </div>
             <div class="hsl">
               <p class="title">HSL</p>
-              <p class="details" id="details">hsl(56, 74%, 74%)</p>
+              <p class="HSLDetails">hsl(56, 74%, 74%)</p>
             </div>
           </div>
 
           <div class="cards">
-            <div>
-              <span class="colors" id="colors"></span>
-            </div>
+            <div class="colors"></div>
 
             <div class="hex">
               <p class="title">HEX</p>
-              <p class="details" id="details">#BCB230</p>
+              <p class="HexDetails">#BCB230</p>
             </div>
             <div class="rgb">
               <p class="title">RGB</p>
-              <p class="details" id="details">rgb(188, 178, 48)</p>
+              <p class="RGBDetails">rgb(188, 178, 48)</p>
             </div>
             <div class="hsl">
               <p class="title">HSL</p>
-              <p class="details" id="details">hsl(56, 74%, 74%)</p>
+              <p class="HSLDetails">hsl(56, 74%, 74%)</p>
             </div>
           </div>
 
           <div class="cards">
-            <div>
-              <span class="colors" id="colors"></span>
-            </div>
+            <div class="colors"></div>
 
             <div class="hex">
               <p class="title">HEX</p>
-              <p class="details" id="details">#BCB230</p>
+              <p class="HexDetails">#BCB230</p>
             </div>
             <div class="rgb">
               <p class="title">RGB</p>
-              <p class="details" id="details">rgb(188, 178, 48)</p>
+              <p class="RGBDetails">rgb(188, 178, 48)</p>
             </div>
             <div class="hsl">
               <p class="title">HSL</p>
-              <p class="details" id="details">hsl(56, 74%, 74%)</p>
+              <p class="HSLDetails">hsl(56, 74%, 74%)</p>
             </div>
           </div>
 
           <div class="cards">
-            <div>
-              <span class="colors" id="colors"></span>
-            </div>
+            <div class="colors"></div>
 
             <div class="hex">
               <p class="title">HEX</p>
-              <p class="details" id="details">#BCB230</p>
+              <p class="HexDetails">#BCB230</p>
             </div>
             <div class="rgb">
               <p class="title">RGB</p>
-              <p class="details" id="details">rgb(188, 178, 48)</p>
+              <p class="RGBDetails">rgb(188, 178, 48)</p>
             </div>
             <div class="hsl">
               <p class="title">HSL</p>
-              <p class="details" id="details">hsl(56, 74%, 74%)</p>
+              <p class="HSLDetails">hsl(56, 74%, 74%)</p>
             </div>
           </div>
 
           <div class="cards">
-            <div>
-              <span class="colors" id="colors"></span>
-            </div>
+            <div class="colors"></div>
 
             <div class="hex">
               <p class="title">HEX</p>
-              <p class="details" id="details">#BCB230</p>
+              <p class="HexDetails">#BCB230</p>
             </div>
             <div class="rgb">
               <p class="title">RGB</p>
-              <p class="details" id="details">rgb(188, 178, 48)</p>
+              <p class="RGBDetails">rgb(188, 178, 48)</p>
             </div>
             <div class="hsl">
               <p class="title">HSL</p>
-              <p class="details" id="details">hsl(56, 74%, 74%)</p>
+              <p class="HSLDetails">hsl(56, 74%, 74%)</p>
             </div>
           </div>
 
           <div class="cards">
-            <div>
-              <span class="colors" id="colors"></span>
-            </div>
+            <div class="colors"></div>
 
             <div class="hex">
               <p class="title">HEX</p>
-              <p class="details" id="details">#BCB230</p>
+              <p class="HexDetails">#BCB230</p>
             </div>
             <div class="rgb">
               <p class="title">RGB</p>
-              <p class="details" id="details">rgb(188, 178, 48)</p>
+              <p class="RGBDetails">rgb(188, 178, 48)</p>
             </div>
             <div class="hsl">
               <p class="title">HSL</p>
-              <p class="details" id="details">hsl(56, 74%, 74%)</p>
+              <p class="HSLDetails">hsl(56, 74%, 74%)</p>
             </div>
           </div>
         </div>
 
         <div>
           <a href="#explore"
-            ><button type="button" class="refreshBtn">Refresh</button></a
+            ><button type="button" class="refreshBtn" id="refreshBtn">
+              Refresh
+            </button></a
           >
         </div>
       </section>
