@@ -11,7 +11,7 @@
 ---
 
 ## Features
-
+<br>
 The landing page features a random color and its RGB, HEX & HSL codes. When the home color is clicked, a new random color is generated in its place.
 
 <br>
@@ -62,5 +62,3 @@ Users can also toggle between light & dark color card backgrounds by clicking a 
 + [Colors](https://github.com/superlunch/color-search) web app by [Scout Cox](https://github.com/superlunch) and [Yingyang Zhang](https://github.com/#) @ Flatiron School, 2022
 
 + [xColors API](https://x-colors.herokuapp.com) by [cheatsnake](https://github.com/cheatsnake)
-
----
