@@ -1,3 +1,7 @@
+// add function for fetch?
+
+const xcolors = "https://x-colors.herokuapp.com/api/random/";
+
 window.addEventListener("scroll", scrollShowButton);
 toggleFilter();
 changeAppearanceEvent();
@@ -44,46 +48,14 @@ function scrollShowButton() {
 
 function changeAppearanceEvent() {
   const toggleAppearance = document.querySelector("#toggleAppearance");
-  const cards = document.querySelectorAll(".cards");
-  const hex = document.querySelectorAll(".hex");
-  const hsl = document.querySelectorAll(".hsl");
-  const rgb = document.querySelectorAll(".rgb");
-  let white = false;
 
   toggleAppearance.addEventListener("click", (e) => {
-    white = !white;
-    if (white) {
-      cards.forEach((card) => {
-        card.style.backgroundColor = "white";
-      });
+    const htmlTag = document.firstElementChild;
 
-      hex.forEach((color) => {
-        color.style.color = "black";
-      });
-
-      hsl.forEach((color) => {
-        color.style.color = "black";
-      });
-
-      rgb.forEach((color) => {
-        color.style.color = "black";
-      });
+    if (htmlTag.dataset.theme == "light") {
+      htmlTag.dataset.theme = "dark";
     } else {
-      cards.forEach((color) => {
-        color.style.backgroundColor = "black";
-      });
-
-      hex.forEach((color) => {
-        color.style.color = "white";
-      });
-
-      hsl.forEach((color) => {
-        color.style.color = "white";
-      });
-
-      rgb.forEach((color) => {
-        color.style.color = "white";
-      });
+      htmlTag.dataset.theme = "light";
     }
   });
 }
@@ -102,7 +74,7 @@ function hoverCards() {
 }
 
 function randomBGColor() {
-  fetch("https://x-colors.herokuapp.com/api/random")
+  fetch(xcolors)
     .then((resp) => resp.json())
     .then((data) => {
       console.log(data);
@@ -121,16 +93,16 @@ function randomBGColor() {
 function clickToChangeBGColor() {
   const home = document.querySelector("#home");
   const rgbNumber = document.querySelector("#homeRgbNumber");
-  const hexNumebr = document.querySelector("#homeHexNumber");
+  const hexNumber = document.querySelector("#homeHexNumber");
   const hslNumber = document.querySelector("#homeHslNumber");
 
   home.addEventListener("click", (e) => {
-    fetch("https://x-colors.herokuapp.com/api/random")
+    fetch(xcolors)
       .then((resp) => resp.json())
       .then((data) => {
         home.style.backgroundColor = data.hex;
         rgbNumber.textContent = data.rgb;
-        hexNumebr.textContent = data.hex;
+        hexNumber.textContent = data.hex;
         hslNumber.textContent = data.hsl;
       });
   });
@@ -139,7 +111,7 @@ function clickToChangeBGColor() {
 function randomColorCards() {
   const cards = document.querySelectorAll(".cards");
   cards.forEach((card) => {
-    fetch("https://x-colors.herokuapp.com/api/random")
+    fetch(xcolors)
       .then((resp) => resp.json())
       .then((data) => {
         card.childNodes[1].style.backgroundColor = data.hex;
@@ -177,7 +149,7 @@ function filter(color) {
   const exploreContainer = document.querySelector(".exploreContainer");
   exploreContainer.style.visibility = "hidden";
   cards.forEach((card) => {
-    fetch(`https://x-colors.herokuapp.com/api/random/${color.toLowerCase()}`)
+    fetch(xcolors + `${color.toLowerCase()}`)
       .then((resp) => resp.json())
       .then((data) => {
         card.childNodes[1].style.backgroundColor = data.hex;
