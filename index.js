@@ -127,9 +127,7 @@ function refreshBtnEvent() {
     const exploreContainer = document.querySelector(".exploreContainer");
     exploreContainer.style.visibility = "hidden";
     randomColorCards();
-    setTimeout(() => {
-      exploreContainer.style.visibility = "visible";
-    }, 700);
+    onDOMContentLoaded = exploreContainer.style.visibility = "visible";
   });
 }
 
@@ -154,8 +152,6 @@ function filter(color) {
       card.childNodes[5].childNodes[3].textContent = data.rgb;
       card.childNodes[7].childNodes[3].textContent = data.hsl;
     });
-    setTimeout(() => {
-      exploreContainer.style.visibility = "visible";
-    }, 700);
+    onDOMContentLoaded = exploreContainer.style.visibility = "visible";
   });
 }
