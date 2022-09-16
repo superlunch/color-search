@@ -1,6 +1,12 @@
-// add function for fetch?
+function getColor() {
+  return fetch("https://x-colors.herokuapp.com/api/random/")
+  .then((resp) => resp.json());
+}
 
-const xcolors = "https://x-colors.herokuapp.com/api/random/";
+function getHue(color) {
+  return fetch(`https://x-colors.herokuapp.com/api/random/${color.toLowerCase()}`)
+  .then((resp) => resp.json());
+}
 
 window.addEventListener("scroll", scrollShowButton);
 toggleFilter();
@@ -37,7 +43,7 @@ function scrollShowButton() {
   let y = window.scrollY;
   const toggleAppearance = document.querySelector("#toggleAppearance");
 
-  if (y <= 750) {
+  if (y <= 700) {
     toggleAppearance.style.color = "white";
     toggleAppearance.classList.add("visiblities");
   } else {
@@ -51,7 +57,6 @@ function changeAppearanceEvent() {
 
   toggleAppearance.addEventListener("click", (e) => {
     const htmlTag = document.firstElementChild;
-
     if (htmlTag.dataset.theme == "light") {
       htmlTag.dataset.theme = "dark";
     } else {
@@ -74,20 +79,18 @@ function hoverCards() {
 }
 
 function randomBGColor() {
-  fetch(xcolors)
-    .then((resp) => resp.json())
-    .then((data) => {
-      console.log(data);
-      const home = document.querySelector("#home");
-      const rgbNumber = document.querySelector("#homeRgbNumber");
-      const hexNumebr = document.querySelector("#homeHexNumber");
-      const hslNumber = document.querySelector("#homeHslNumber");
+  getColor().then((data) => {
+    console.log(data);
+    const home = document.querySelector("#home");
+    const rgbNumber = document.querySelector("#homeRgbNumber");
+    const hexNumber = document.querySelector("#homeHexNumber");
+    const hslNumber = document.querySelector("#homeHslNumber");
 
-      home.style.backgroundColor = data.hex;
-      rgbNumber.textContent = data.rgb;
-      hexNumebr.textContent = data.hex;
-      hslNumber.textContent = data.hsl;
-    });
+    home.style.backgroundColor = data.hex;
+    rgbNumber.textContent = data.rgb;
+    hexNumber.textContent = data.hex;
+    hslNumber.textContent = data.hsl;
+  });
 }
 
 function clickToChangeBGColor() {
@@ -97,28 +100,24 @@ function clickToChangeBGColor() {
   const hslNumber = document.querySelector("#homeHslNumber");
 
   home.addEventListener("click", (e) => {
-    fetch(xcolors)
-      .then((resp) => resp.json())
-      .then((data) => {
-        home.style.backgroundColor = data.hex;
-        rgbNumber.textContent = data.rgb;
-        hexNumber.textContent = data.hex;
-        hslNumber.textContent = data.hsl;
-      });
+    getColor().then((data) => {
+      home.style.backgroundColor = data.hex;
+      rgbNumber.textContent = data.rgb;
+      hexNumber.textContent = data.hex;
+      hslNumber.textContent = data.hsl;
+    });
   });
 }
 
 function randomColorCards() {
   const cards = document.querySelectorAll(".cards");
   cards.forEach((card) => {
-    fetch(xcolors)
-      .then((resp) => resp.json())
-      .then((data) => {
-        card.childNodes[1].style.backgroundColor = data.hex;
-        card.childNodes[3].childNodes[3].textContent = data.hex;
-        card.childNodes[5].childNodes[3].textContent = data.rgb;
-        card.childNodes[7].childNodes[3].textContent = data.hsl;
-      });
+    getColor().then((data) => {
+      card.childNodes[1].style.backgroundColor = data.hex;
+      card.childNodes[3].childNodes[3].textContent = data.hex;
+      card.childNodes[5].childNodes[3].textContent = data.rgb;
+      card.childNodes[7].childNodes[3].textContent = data.hsl;
+    });
   });
 }
 
@@ -149,14 +148,12 @@ function filter(color) {
   const exploreContainer = document.querySelector(".exploreContainer");
   exploreContainer.style.visibility = "hidden";
   cards.forEach((card) => {
-    fetch(xcolors + `${color.toLowerCase()}`)
-      .then((resp) => resp.json())
-      .then((data) => {
-        card.childNodes[1].style.backgroundColor = data.hex;
-        card.childNodes[3].childNodes[3].textContent = data.hex;
-        card.childNodes[5].childNodes[3].textContent = data.rgb;
-        card.childNodes[7].childNodes[3].textContent = data.hsl;
-      });
+    getHue(color).then((data) => {
+      card.childNodes[1].style.backgroundColor = data.hex;
+      card.childNodes[3].childNodes[3].textContent = data.hex;
+      card.childNodes[5].childNodes[3].textContent = data.rgb;
+      card.childNodes[7].childNodes[3].textContent = data.hsl;
+    });
     setTimeout(() => {
       exploreContainer.style.visibility = "visible";
     }, 700);
