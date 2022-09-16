@@ -2,7 +2,7 @@
 
 > Colors is a random color generator, powered by the [xColors API](https://x-colors.herokuapp.com) by [cheatsnake](https://github.com/cheatsnake).
 
-![demo screenshot](images/demo.png)
+![demo screenshot](images/colorsearchss.png)
 
 (More in-depth description)
 
